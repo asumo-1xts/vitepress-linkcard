@@ -59,6 +59,6 @@ jobs:
           branch: typedoc
           commit_message: "auto: Update TypeDoc"
           commit_user_name: "gh-actions[bot]"
-          commit_user_email: "gh-actions[bot]@github.com"
-          commit_author: "gh-actions[bot] <gh-actions[bot]@github.com>"
+          commit_user_email: "action@github.com"
+          commit_author: "gh-actions[bot] <action@github.com>"
 
