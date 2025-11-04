@@ -14,8 +14,10 @@ on:
   
 jobs:
   do-typedoc:
-    if: github.event.pull_request.merged == true
+    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -32,8 +34,31 @@ jobs:
           yarn install --immutable
       - name: Generate TypeDoc
         run: yarn docs
+
+      # 更新された docs を一時ディレクトリへコピー
+      - name: Save updated docs
+        run: |
+          mkdir -p /tmp/vitepress-linkcard
+          cp -r docs /tmp/vitepress-linkcard/docs
+
+      # typedoc ブランチをチェックアウト
+      - name: Checkout typedoc branch
+        uses: actions/checkout@v5
+        with:
+          ref: typedoc
+          fetch-depth: 0
+
+      # docs を復元
+      - name: Restore docs
+        run: cp -r /tmp/vitepress-linkcard/docs docs
+
+      # コミット＆プッシュ
       - name: Commit formatted code
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: typedoc
           commit_message: "auto: Update TypeDoc"
+          commit_user_name: "gh-actions[bot]"
+          commit_user_email: "gh-actions[bot]@github.com"
+          commit_author: "gh-actions[bot] <gh-actions[bot]@github.com>"
+
