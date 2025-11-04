@@ -1,0 +1,39 @@
+name: TypeDoc CD
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+    paths:
+      - 'src/**'
+      - 'README.md'
+      - '.github/workflows/typedoc.yml'
+  workflow_dispatch:
+  
+jobs:
+  do-typedoc:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+      - name: Enable Yarn
+        run: |
+          npm uninstall -g yarn
+          corepack enable
+          corepack prepare yarn@4.9.2 --activate
+          yarn install --immutable
+      - name: Generate TypeDoc
+        run: yarn docs
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+        with:
+          branch: typedoc
+          commit_message: "auto: Update TypeDoc"
