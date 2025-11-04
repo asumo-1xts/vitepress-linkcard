@@ -20,12 +20,12 @@ yarn dlx @yarnpkg/sdks vscode # If you develop with VScode
 
 ## CI/CD
 
-| Task           | When              | Action                                                                                      | On local       |
-|----------------|-------------------|---------------------------------------------------------------------------------------------|----------------|
-| ESLint         | PR is opened      | Block merge until errors are resolved                                                       | `yarn lint`    |
-| Prettier       | PR is merged      | Format files and push them on `HEAD`                                                        | `yarn format`  |
-| Publish to npm | Prettier has done | Publish package to [npmjs](https://www.npmjs.com/package/vitepress-linkcard)                | -              |
-| TypeDoc        | Prettier has done | Build and deploy docs to [GitHub Pages](https://asumo-1xts.github.io/vitepress-linkcard/)   | `yarn docs`    |
+| Task           | When          | Action                                                                                      | On local       |
+|----------------|---------------|---------------------------------------------------------------------------------------------|----------------|
+| ESLint         | PR is opened  | Block merge until errors are resolved                                                       | `yarn lint`    |
+| Prettier       | PR is merged  | Format files and push them on `HEAD`                                                        | `yarn format`  |
+| Publish to npm | PR is merged  | Publish package to [npmjs](https://www.npmjs.com/package/vitepress-linkcard)                | -              |
+| TypeDoc        | PR is merged  | Build and deploy docs to [GitHub Pages](https://asumo-1xts.github.io/vitepress-linkcard/)   | `yarn docs`    |
 
 ## devDependencies
 
