@@ -37,4 +37,6 @@ jobs:
         with:
           branch: main
           commit_message: "auto: Format code with Prettier"
-
+          commit_user_name: "gh-actions[bot]"
+          commit_user_email: "gh-actions[bot]@github.com"
+          commit_author: "gh-actions[bot] <gh-actions[bot]@github.com>"
