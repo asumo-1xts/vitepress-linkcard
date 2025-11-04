@@ -5,9 +5,8 @@ vitepress-linkcard
 <div align="center">
 
 [![NPM Version](https://img.shields.io/npm/v/vitepress-linkcard?style=flat&logo=npm&logoColor=white&label=npmjs&color=%23CB3837)](https://www.npmjs.com/package/vitepress-linkcard)
-![npm bundle size](https://img.shields.io/bundlephobia/min/vitepress-linkcard)
-[![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)
-](/LICENSE)
+[![NPM bundle size](https://img.shields.io/bundlephobia/min/vitepress-linkcard)](https://www.npmjs.com/package/vitepress-linkcard)
+[![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)](/LICENSE)
 
 [![VitePress](https://img.shields.io/badge/For_VitePress-v1.6.4-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
 [![Yarn](https://img.shields.io/badge/Built_with_Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)

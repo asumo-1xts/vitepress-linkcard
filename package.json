@@ -9,7 +9,7 @@
   "bugs": {
     "url": "https://github.com/asumo-1xts/vitepress-linkcard"
   },
-  "description": "A vitepress-plugin to generate a pretty linkcard with OGP.",
+  "description": "A Vitepress plugin to generate a pretty linkcard with OGP.",
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
@@ -75,5 +75,5 @@
   },
   "type": "module",
   "types": "./types/index.d.ts",
-  "version": "0.9.9"
+  "version": "1.0.0"
 }
