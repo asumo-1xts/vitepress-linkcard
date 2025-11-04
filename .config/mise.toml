@@ -1,0 +1,4 @@
+[tools]
+node = "latest"
+npm = "latest"
+yarn = "4.9.2"
