@@ -1,7 +1,20 @@
 import { isPureObject } from "@luckrya/utility";
 import fs from "node:fs";
 
-const CONFIG_FILE = () => `${process.cwd()}/.linkcardrc`;
+const CONFIG_FILE = () => {
+  const filePath = `${process.cwd()}/.linkcard_cache.json`;
+  if (!fs.existsSync(filePath)) {
+    const initialData = {
+      "https://example.com/": {
+        description: "Example Website",
+        logo: "https://example.com/example.png",
+        title: "Example Title",
+      },
+    };
+    fs.writeFileSync(filePath, JSON.stringify(initialData, null, 2));
+  }
+  return filePath;
+};
 
 export default class LocalFileCache<V extends Record<string, unknown>> {
   constructor() {}
