@@ -16,6 +16,15 @@ const CONFIG_FILE = () => {
   return filePath;
 };
 
+const format = () => {
+  const filePath = CONFIG_FILE();
+  const content = fs.readFileSync(filePath, "utf-8").trim();
+  if (!content) return;
+  const parsed = JSON.parse(content);
+  const formatted = JSON.stringify(parsed, null, 2) + "\n";
+  fs.writeFileSync(filePath, formatted);
+};
+
 export default class LocalFileCache<V extends Record<string, unknown>> {
   constructor() {}
 
@@ -29,6 +38,7 @@ export default class LocalFileCache<V extends Record<string, unknown>> {
       content = Object.assign(_content, content);
     }
     fs.writeFileSync(CONFIG_FILE(), JSON.stringify(content));
+    format();
   }
 
   /**
