@@ -6,7 +6,7 @@ vitepress-linkcard
 
 [![NPM Version](https://img.shields.io/npm/v/vitepress-linkcard?style=flat&logo=npm&logoColor=white&label=npmjs&color=%23CB3837)](https://www.npmjs.com/package/vitepress-linkcard)
 [![NPM bundle size](https://img.shields.io/bundlephobia/min/vitepress-linkcard)](https://www.npmjs.com/package/vitepress-linkcard)
-[![MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)](/LICENSE)
 
 [![VitePress](https://img.shields.io/badge/For_VitePress-v1.6.4-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
 [![Yarn](https://img.shields.io/badge/Built_with_Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
@@ -68,6 +68,20 @@ Generates a link card when `@:` appended.
 
 ```md
 [example](@:https://example.com)
+```
+
+#### Add new file at root: `.linkcardrc`
+
+File for storing cache. You can copy and paste it as is. In the next release, we'll make it so you don't have to create it manually.
+
+```json
+{ 
+ "https://example.com/": {
+    "description": "Example Website",
+    "logo": "https://example.com/example.png",
+    "title": "Example Title"
+  },
+}
 ```
 
 ## Supported options
