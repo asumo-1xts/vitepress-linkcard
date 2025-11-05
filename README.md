@@ -70,20 +70,6 @@ Generates a link card when `@:` appended.
 [example](@:https://example.com)
 ```
 
-#### Add new file at root: `.linkcardrc`
-
-File for storing cache. You can copy and paste it as is. In the next release, we'll make it so you don't have to create it manually.
-
-```json
-{ 
- "https://example.com/": {
-    "description": "Example Website",
-    "logo": "https://example.com/example.png",
-    "title": "Example Title"
-  },
-}
-```
-
 ## Supported options
 
 ### borderColor
@@ -112,6 +98,12 @@ Specifies the target window in which to open a link.
 - `_parent`
 
 ## Other specifications
+
+### `.linkcard_cache.json`
+
+It is generated automatically and cache all the parsed metadata.
+
+You can edit it as needed, but ignoring it will increase build time.
 
 ### Special handling for `github.com`
 
