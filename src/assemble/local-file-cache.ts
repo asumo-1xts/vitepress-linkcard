@@ -1,7 +1,29 @@
 import { isPureObject } from "@luckrya/utility";
 import fs from "node:fs";
 
-const CONFIG_FILE = () => `${process.cwd()}/.linkcardrc`;
+const CONFIG_FILE = () => {
+  const filePath = `${process.cwd()}/.linkcard_cache.json`;
+  if (!fs.existsSync(filePath)) {
+    const initialData = {
+      "https://example.com/": {
+        description: "Example Website",
+        logo: "https://example.com/example.png",
+        title: "Example Title",
+      },
+    };
+    fs.writeFileSync(filePath, JSON.stringify(initialData, null, 2));
+  }
+  return filePath;
+};
+
+const format = () => {
+  const filePath = CONFIG_FILE();
+  const content = fs.readFileSync(filePath, "utf-8").trim();
+  if (!content) return;
+  const parsed = JSON.parse(content);
+  const formatted = JSON.stringify(parsed, null, 2) + "\n";
+  fs.writeFileSync(filePath, formatted);
+};
 
 export default class LocalFileCache<V extends Record<string, unknown>> {
   constructor() {}
@@ -16,6 +38,7 @@ export default class LocalFileCache<V extends Record<string, unknown>> {
       content = Object.assign(_content, content);
     }
     fs.writeFileSync(CONFIG_FILE(), JSON.stringify(content));
+    format();
   }
 
   /**
