@@ -1,5 +1,5 @@
-import type { CardDomRender } from "../types";
-import { STYLE } from "./style";
+import type { CardDomRender } from '../types'
+import { STYLE } from './style'
 
 /**
  * @param data
@@ -13,41 +13,36 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     href: `href="${options.href}"`,
     title: `title="${options.linkTitle}"`,
     borderColor: `borderColor="${options.borderColor}"`,
-    bgColor: `bgColor="${options.bgColor}"`,
-  };
+    bgColor: `bgColor="${options.bgColor}"`
+  }
   const inject = (s: string) => {
-    return s;
-  };
+    return s
+  }
   const escapeHTML = (str: string) =>
     str
-      .replace(/&amp;/g, "&")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
       .replace(/&quot;/g, '"')
-      .replace(/&#039;/g, "'");
-  const style = STYLE(
-    options.borderColor || "#7d7d7dff",
-    options.bgColor || "#7d7d7d00",
-  );
-  const url = options.href || "";
-  const domain =
-    new URL(url).origin.replace(/^https?:\/\//, "").replace(/^www\./, "") ||
-    "Unknown domain";
+      .replace(/&#039;/g, "'")
+  const style = STYLE(options.borderColor || '#7d7d7dff', options.bgColor || '#7d7d7d00')
+  const url = options.href || ''
+  const domain = new URL(url).origin.replace(/^https?:\/\//, '').replace(/^www\./, '') || 'Unknown domain'
 
-  let title = data.title;
-  let description = data.description;
+  let title = data.title
+  let description = data.description
 
   // Special handling for gitub.com
-  if (domain == "github.com") {
-    title = data.title?.split(":")[0].replace("GitHub - ", "") || "No title";
+  if (domain == 'github.com') {
+    title = data.title?.split(':')[0].replace('GitHub - ', '') || 'No title'
     description =
-      description?.replace(` - ${title}`, "").replace(
+      description?.replace(` - ${title}`, '').replace(
         `Contribute to ${title} development by creating an account on GitHub.`, // 定型句
-        "",
-      ) || "";
+        ''
+      ) || ''
   } else {
-    title = data.title || "No title";
-    description = data.description || "";
+    title = data.title || 'No title'
+    description = data.description || ''
   }
 
   return `<span style="display:block;">
@@ -67,5 +62,5 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       <img src="${data?.logo}" ${inject(style.img)}/>
     </span>
   </a>
-</span>`;
-};
+</span>`
+}

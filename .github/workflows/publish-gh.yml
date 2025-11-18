@@ -14,8 +14,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@asumo-1xts"
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@asumo-1xts'
       - name: Enable Yarn
         run: |
           npm uninstall -g yarn

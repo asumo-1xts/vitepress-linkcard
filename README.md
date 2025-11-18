@@ -66,7 +66,7 @@ export default defineConfig({
 
 #### `*.md`
 
-Generates a link card when `@:` appended.
+Generates a linkcard when `@:` appended.
 
 ```md
 [example](@:https://example.com)
