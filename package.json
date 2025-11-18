@@ -69,11 +69,11 @@
     "clean": "rm -rf dist types",
     "dev": "rollup -c -w",
     "docs": "yarn typedoc",
-    "format": "yarn prettier --write src/**/* && rm -rf node_modules",
+    "format": "yarn prettier --config .vscode/.prettierrc.json --write .config/*.json .github .vscode src *.json && rm -rf node_modules",
     "lint": "yarn eslint --config .vscode/eslint.config.ts src/**/*",
     "type:dts": "tsc --emitDeclarationOnly"
   },
   "type": "module",
   "types": "./types/index.d.ts",
-  "version": "1.1.2"
+  "version": "1.1.3"
 }

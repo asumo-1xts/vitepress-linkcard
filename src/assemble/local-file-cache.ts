@@ -1,29 +1,29 @@
-import { isPureObject } from "@luckrya/utility";
-import fs from "node:fs";
+import { isPureObject } from '@luckrya/utility'
+import fs from 'node:fs'
 
 const CONFIG_FILE = () => {
-  const filePath = `${process.cwd()}/.linkcard_cache.json`;
+  const filePath = `${process.cwd()}/.linkcard_cache.json`
   if (!fs.existsSync(filePath)) {
     const initialData = {
-      "https://example.com/": {
-        description: "Example Website",
-        logo: "https://example.com/example.png",
-        title: "Example Title",
-      },
-    };
-    fs.writeFileSync(filePath, JSON.stringify(initialData, null, 2));
+      'https://example.com/': {
+        description: 'Example Website',
+        logo: 'https://example.com/example.png',
+        title: 'Example Title'
+      }
+    }
+    fs.writeFileSync(filePath, JSON.stringify(initialData, null, 2))
   }
-  return filePath;
-};
+  return filePath
+}
 
 const format = () => {
-  const filePath = CONFIG_FILE();
-  const content = fs.readFileSync(filePath, "utf-8").trim();
-  if (!content) return;
-  const parsed = JSON.parse(content);
-  const formatted = JSON.stringify(parsed, null, 2) + "\n";
-  fs.writeFileSync(filePath, formatted);
-};
+  const filePath = CONFIG_FILE()
+  const content = fs.readFileSync(filePath, 'utf-8').trim()
+  if (!content) return
+  const parsed = JSON.parse(content)
+  const formatted = JSON.stringify(parsed, null, 2) + '\n'
+  fs.writeFileSync(filePath, formatted)
+}
 
 export default class LocalFileCache<V extends Record<string, unknown>> {
   constructor() {}
@@ -32,24 +32,24 @@ export default class LocalFileCache<V extends Record<string, unknown>> {
    * @param data
    */
   private setFile(data: Record<string, V>) {
-    let content = data;
-    const _content = this.readFile();
+    let content = data
+    const _content = this.readFile()
     if (_content) {
-      content = Object.assign(_content, content);
+      content = Object.assign(_content, content)
     }
-    fs.writeFileSync(CONFIG_FILE(), JSON.stringify(content));
-    format();
+    fs.writeFileSync(CONFIG_FILE(), JSON.stringify(content))
+    format()
   }
 
   /**
    * @returns
    */
   private readFile(): Record<string, V> | undefined {
-    const content = fs.readFileSync(CONFIG_FILE(), "utf-8");
-    const data = JSON.parse(content);
-    if (isPureObject(data)) return data;
+    const content = fs.readFileSync(CONFIG_FILE(), 'utf-8')
+    const data = JSON.parse(content)
+    if (isPureObject(data)) return data
 
-    return undefined;
+    return undefined
   }
 
   /**
@@ -57,7 +57,7 @@ export default class LocalFileCache<V extends Record<string, unknown>> {
    * @returns
    */
   has(url: string) {
-    return !!this.get(url);
+    return !!this.get(url)
   }
 
   /**
@@ -65,8 +65,8 @@ export default class LocalFileCache<V extends Record<string, unknown>> {
    * @returns
    */
   get(url: string) {
-    const cache = this.readFile();
-    return cache?.[url];
+    const cache = this.readFile()
+    return cache?.[url]
   }
 
   /**
@@ -74,6 +74,6 @@ export default class LocalFileCache<V extends Record<string, unknown>> {
    * @param data
    */
   set(url: string, data: V) {
-    this.setFile({ [url]: data });
+    this.setFile({ [url]: data })
   }
 }

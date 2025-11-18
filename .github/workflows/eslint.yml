@@ -22,7 +22,7 @@ jobs:
         uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          level: "warning"
-          filter_mode: "diff_context"
-          fail_level: "error"
-          eslint_flags: "--config .vscode/eslint.config.ts src/"
+          level: 'warning'
+          filter_mode: 'diff_context'
+          fail_level: 'error'
+          eslint_flags: '--config .vscode/eslint.config.ts src/'
