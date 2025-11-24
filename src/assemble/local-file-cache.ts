@@ -2,8 +2,16 @@ import { isPureObject } from '@luckrya/utility'
 import fs from 'node:fs'
 
 const CONFIG_FILE = () => {
-  const filePath = `${process.cwd()}/.linkcard_cache.json`
-  if (!fs.existsSync(filePath)) {
+  let filePath: string
+  const defaultPath = `${process.cwd()}/.linkcard_cache.json`
+  const fallbackPath = `${process.cwd()}/.config/.linkcard_cache.json`
+
+  if (fs.existsSync(defaultPath)) {
+    filePath = defaultPath
+  } else if (fs.existsSync(fallbackPath)) {
+    filePath = fallbackPath
+  } else {
+    filePath = defaultPath
     const initialData = {
       'https://example.com/': {
         description: 'Example Website',
