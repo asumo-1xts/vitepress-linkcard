@@ -105,9 +105,9 @@ Specifies the target window in which to open a link.
 
 ### `.linkcard_cache.json`
 
-It is generated automatically and cache all the parsed metadata.
+It is generated automatically in root dir and cache all the parsed metadata.
 
-You can edit it as needed, but ignoring it will increase build time.
+You can move it to `.config` directory or edit it if needed.
 
 ### Special handling for `github.com`
 
