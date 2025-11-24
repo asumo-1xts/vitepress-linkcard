@@ -35,7 +35,7 @@
     "vue-eslint-parser": "^10.2.0",
     "xmlhttprequest": "^1.8.0"
   },
-  "files": ["dist", "types"],
+  "files": ["dist", "types", "docs"],
   "keywords": ["thumbnail", "typescript", "markdown-it", "metadata", "ogp", "linkcard", "vite", "vitepress"],
   "license": "MIT",
   "main": "./dist/.esm.min.js",
@@ -45,6 +45,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "readme": "./docs/README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/asumo-1xts/vitepress-linkcard.git"
@@ -60,5 +61,5 @@
   },
   "type": "module",
   "types": "./types/index.d.ts",
-  "version": "1.2.0"
+  "version": "1.2.4"
 }
