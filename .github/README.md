@@ -17,7 +17,7 @@ Slightly more readable README created with this plugin is [here](https://asumora
 [![ESLint](https://img.shields.io/badge/Lint_with-ESLint-%234B32C3?style=flat&logo=eslint&logoColor=white&labelColor=gray)](https://github.com/asumo-1xts/vitepress-linkcard/actions/workflows/eslint.yml)
 [![Prettier](https://img.shields.io/badge/Format_with-Prettier-%23F7B93E?style=flat&logo=prettier&logoColor=white&labelColor=gray)](https://github.com/asumo-1xts/vitepress-linkcard/actions/workflows/prettier.yml)
 
-<img src="./screen.webp" width=90% alt="How it shows" />
+<img src="https://github.com/asumo-1xts/vitepress-linkcard/blob/main/.github/screen.webp?raw=true" width=90% alt="How it shows" />
 
 This plugin was forked from [markdown-it-link-to-card](https://github.com/luckrya/markdown-it-link-to-card).
 
