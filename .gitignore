@@ -6,7 +6,6 @@
 !.yarn/sdks
 !.yarn/versions
 dist/
-docs/
 types/
 .ssh/
 node_modules/
