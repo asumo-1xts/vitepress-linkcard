@@ -2,8 +2,9 @@
   "eslint.nodePath": ".yarn/sdks",
   "eslint.options": {
     "flags": ["unstable_ts_config"],
-    "overrideConfigFile": "eslint.config.ts"
+    "overrideConfigFile": ".vscode/eslint.config.ts"
   },
+  "prettier.configPath": ".vscode/.prettierrc.json",
   "prettier.endOfLine": "auto",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
   "prettier.vueIndentScriptAndStyle": true,
