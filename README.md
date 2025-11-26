@@ -4,7 +4,7 @@ vitepress-linkcard
 
 <div align="center">
 
-**A Vitepress plugin to generate a pretty linkcard with OGP.**
+**A VitePress plugin to generate a pretty linkcard with OGP.**
 
 Slightly more readable README created with this plugin is [here](https://asumoranda.com/posts/10-vitepress-linkcard.html).
 
