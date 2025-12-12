@@ -36,7 +36,16 @@
     "xmlhttprequest": "^1.8.0"
   },
   "files": ["dist", "types"],
-  "keywords": ["thumbnail", "typescript", "markdown-it", "metadata", "ogp", "linkcard", "vite", "vitepress"],
+  "keywords": [
+    "thumbnail",
+    "typescript",
+    "markdown-it",
+    "metadata",
+    "ogp",
+    "linkcard",
+    "vite",
+    "vitepress"
+  ],
   "license": "MIT",
   "main": "./dist/.esm.min.js",
   "module": "./dist/.esm.min.js",
@@ -54,7 +63,7 @@
     "clean": "rm -rf dist types",
     "dev": "rollup -c -w",
     "docs": "yarn typedoc",
-    "format": "yarn prettier --config .vscode/.prettierrc.json --write .config/*.json .github .vscode src *.json && rm -rf node_modules",
+    "format": "yarn prettier --config .vscode/.prettierrc.json --write .config/*.json .github/workflows .vscode src *.json && rm -rf node_modules",
     "lint": "yarn eslint --config .vscode/eslint.config.ts src/**/*",
     "type:dts": "tsc --emitDeclarationOnly"
   },
