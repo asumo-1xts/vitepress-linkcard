@@ -1,6 +1,7 @@
 import type MarkdownIt from 'markdown-it'
 
-export type LinkToCardPlugin = MarkdownIt.PluginWithOptions<LinkToCardPluginOptions>
+export type LinkToCardPlugin =
+  MarkdownIt.PluginWithOptions<LinkToCardPluginOptions>
 
 /*
  *   - https://daringfireball.net/projects/markdown/syntax#link
@@ -33,4 +34,7 @@ export interface CardDomRenderOptions {
   bgColor?: string
 }
 
-export type CardDomRender = (data: UrlMetadata, options: CardDomRenderOptions) => string
+export type CardDomRender = (
+  data: UrlMetadata,
+  options: CardDomRenderOptions
+) => string

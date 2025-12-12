@@ -22,7 +22,11 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
    * @param options
    * @returns
    */
-  function assembleCardTpl(options: { url: string; tokens: Token[]; i: number }) {
+  function assembleCardTpl(options: {
+    url: string
+    tokens: Token[]
+    i: number
+  }) {
     const urlMetadata = getUrlMetadata(options.url)
 
     if (urlMetadata) {

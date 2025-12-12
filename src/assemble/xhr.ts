@@ -26,7 +26,9 @@ export function sync(url: string) {
       cache.set(url, xhr.responseText)
     }
   } catch (err) {
-    console.error(`【XHR Error】：${err instanceof Error ? err.message : 'get remote URL resource exception!'}`)
+    console.error(
+      `【XHR Error】：${err instanceof Error ? err.message : 'get remote URL resource exception!'}`
+    )
   }
 
   return result
@@ -45,7 +47,11 @@ export function async(url: string): Promise<string | undefined> {
       xhr.open('GET', url, false)
       xhr.setRequestHeader('Content-Type', 'text/html')
       xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200 && isString(xhr.responseText)) {
+        if (
+          xhr.readyState === 4 &&
+          xhr.status === 200 &&
+          isString(xhr.responseText)
+        ) {
           cache.set(url, xhr.responseText)
           resolve(xhr.responseText)
         }

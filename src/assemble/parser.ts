@@ -71,7 +71,9 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg)
     if (content && isString(content[1])) logo = content[1]
   } else {
-    const linkHtmlTags = htmlString.match(containArrSelfLosingHtmlTagReg('icon', 'link'))
+    const linkHtmlTags = htmlString.match(
+      containArrSelfLosingHtmlTagReg('icon', 'link')
+    )
 
     if (linkHtmlTags?.length) {
       const content = linkHtmlTags[0].match(HrefAttrValueHtmlLinkTagReg)
@@ -88,10 +90,15 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
  * @param url
  * @returns
  */
-export function parserMetadata(htmlString: string, url: string): UrlMetadata | null {
+export function parserMetadata(
+  htmlString: string,
+  url: string
+): UrlMetadata | null {
   function absolute(logo?: string) {
     if (!logo) return DEFAULT_LOGO
-    return extractUrl(logo) ? logo : `${extractUrl(url)?.origin}${cleanPath(`/${logo}`)}` // TODO: no match "content='//img.xx.com/a.png'"
+    return extractUrl(logo)
+      ? logo
+      : `${extractUrl(url)?.origin}${cleanPath(`/${logo}`)}` // TODO: no match "content='//img.xx.com/a.png'"
   }
 
   const metadata = {
