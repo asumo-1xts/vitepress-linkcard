@@ -23,8 +23,6 @@
   "prettier.configPath": ".vscode/.prettierrc.json",
   "prettier.endOfLine": "auto",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
-  "prettier.vueIndentScriptAndStyle": true,
-  "prettier.withNodeModules": true,
   "search.exclude": {
     "**/.pnp.*": true,
     "**/.yarn": true
