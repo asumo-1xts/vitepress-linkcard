@@ -6,7 +6,7 @@ vitepress-linkcard
 
 **A VitePress plugin to generate a pretty linkcard with OGP.**
 
-Slightly more readable README created with this plugin is [here](https://asumoranda.com/posts/10-vitepress-linkcard.html).
+A blog generated with this plugin is [here](https://asumoranda.com/posts/10-vitepress-linkcard.html).
 
 [![NPM Version](https://img.shields.io/npm/v/vitepress-linkcard?style=flat&logo=npm&logoColor=white&label=npmjs&color=%23CB3837)](https://www.npmjs.com/package/vitepress-linkcard)
 [![NPM bundle size](https://img.shields.io/bundlephobia/min/vitepress-linkcard)](https://www.npmjs.com/package/vitepress-linkcard)
