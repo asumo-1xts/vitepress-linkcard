@@ -58,17 +58,24 @@ export default defineConfig({
 });
 ```
 
-#### `docs/.vitepress/theme/custom.css` (Optional: Hover Animation)
+#### `docs/.vitepress/theme/custom.css` (Optional: Styling)
 
-To enable a hover animation similar to VitePress's Features component, add this CSS to your theme:
+You can customize the appearance of linkcards using CSS custom properties:
 
 ```css
+/* Customize colors */
+.vitepress-linkcard-container {
+  --vitepress-linkcard-border-color: #e0e0e0;
+  --vitepress-linkcard-bg-color: #f9f9f9;
+}
+
+/* Add hover animation (similar to VitePress Features) */
 .vitepress-linkcard-container:hover {
   border-color: var(--vp-c-brand-1) !important;
 }
 ```
 
-This will smoothly change the border color when hovering over a linkcard.
+This allows you to override the default colors without modifying plugin options.
 
 #### `*.md`
 

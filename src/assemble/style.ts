@@ -115,8 +115,12 @@ const ellipsisStyle = (line: number) => ({
  *
  * The styles are inspired by VitePress's VPFeature component design.
  *
- * @param borderColor - CSS color value for the card border
- * @param bgColor - CSS color value for the card background
+ * The container uses CSS custom properties for theming:
+ * - `--vitepress-linkcard-border-color`: Border color (fallback: borderColor parameter)
+ * - `--vitepress-linkcard-bg-color`: Background color (fallback: bgColor parameter)
+ *
+ * @param borderColor - CSS color value for the card border (used as fallback)
+ * @param bgColor - CSS color value for the card background (used as fallback)
  * @returns Object containing style attribute strings for each card component
  *
  * @example
@@ -140,8 +144,8 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     flexWrap: 'wrap',
     gap: '10px',
     borderRadius: '12px',
-    border: `1px solid ${borderColor}`,
-    backgroundColor: bgColor,
+    border: `1px solid var(--vitepress-linkcard-border-color, ${borderColor})`,
+    backgroundColor: `var(--vitepress-linkcard-bg-color, ${bgColor})`,
     boxSizing: 'border-box',
     width: '100%',
     height: '130px',

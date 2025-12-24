@@ -32,8 +32,15 @@ import { STYLE } from './style'
  * - The card uses flexbox layout for responsive design
  * - All styles are inlined for maximum compatibility
  * - Container has class `vitepress-linkcard-container` for custom styling
+ * - Uses CSS custom properties for theming:
+ *   - `--vitepress-linkcard-border-color`: Customize border color
+ *   - `--vitepress-linkcard-bg-color`: Customize background color
  * - Border transition is included; add hover styles in your VitePress theme's custom CSS:
  *   ```css
+ *   .vitepress-linkcard-container {
+ *     --vitepress-linkcard-border-color: #e0e0e0;
+ *     --vitepress-linkcard-bg-color: #f9f9f9;
+ *   }
  *   .vitepress-linkcard-container:hover {
  *     border-color: var(--vp-c-brand-1) !important;
  *   }
