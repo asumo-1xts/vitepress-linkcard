@@ -11,19 +11,19 @@ const cache = new LocalFileCache<UrlMetadata>()
 
 /**
  * Retrieves metadata for a given URL, using cache when available.
- * 
+ *
  * This function first checks if the metadata is already cached. If not, it fetches
  * the HTML content from the URL, parses the metadata, and caches the result for
  * future use.
- * 
+ *
  * The metadata includes:
  * - Title (from `<title>` or OGP tags)
  * - Description (from meta description or OGP tags)
  * - Logo/icon (from OGP image or favicon)
- * 
+ *
  * @param url - The URL to fetch metadata from
  * @returns The parsed URL metadata, or null if the URL cannot be fetched or parsed
- * 
+ *
  * @example
  * ```typescript
  * const metadata = getUrlMetadata('https://example.com')
@@ -32,7 +32,7 @@ const cache = new LocalFileCache<UrlMetadata>()
  *   console.log(metadata.description) // "Example website description"
  * }
  * ```
- * 
+ *
  * @see {@link parserMetadata} for details on metadata extraction
  * @see {@link LocalFileCache} for caching implementation
  */

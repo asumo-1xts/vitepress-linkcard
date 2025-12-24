@@ -3,20 +3,20 @@ import { STYLE } from './style'
 
 /**
  * Generates the HTML DOM fragment for a link card display.
- * 
+ *
  * This is the default card renderer that creates a rich preview card with:
  * - Card title (with 2-line ellipsis)
  * - Domain name (with underline)
  * - Description (with 2-line ellipsis)
  * - Logo/icon image
- * 
+ *
  * The function includes special handling for GitHub URLs to improve the display
  * of repository cards by cleaning up redundant text patterns.
- * 
+ *
  * @param data - The metadata extracted from the URL (title, description, logo)
  * @param options - Rendering options including href, target, colors, etc.
  * @returns An HTML string containing the complete card markup with inline styles
- * 
+ *
  * @example
  * ```typescript
  * const html = generateCardDomFragment(
@@ -24,13 +24,13 @@ import { STYLE } from './style'
  *   { href: 'https://example.com', linkTitle: 'Link', target: '_blank' }
  * )
  * ```
- * 
+ *
  * @remarks
  * - HTML entities in title/description are automatically escaped
  * - For GitHub URLs, the title is cleaned to remove "GitHub - " prefix and redundant text
  * - The card uses flexbox layout for responsive design
  * - All styles are inlined for maximum compatibility
- * 
+ *
  * @see {@link STYLE} for the styling implementation
  */
 export const generateCardDomFragment: CardDomRender = (data, options) => {
@@ -47,7 +47,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
   }
   /**
    * Escapes HTML entities in a string to prevent XSS and display issues.
-   * 
+   *
    * @param str - The string to escape
    * @returns The escaped string safe for HTML insertion
    * @internal

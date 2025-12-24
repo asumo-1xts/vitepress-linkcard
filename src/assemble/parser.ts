@@ -1,10 +1,10 @@
 /**
  * HTML parser module for extracting metadata from web pages.
- * 
+ *
  * This module provides functions to parse HTML strings and extract metadata such as
  * title, description, and logo/icon URLs. It supports both standard HTML meta tags
  * and Open Graph Protocol (OGP) tags.
- * 
+ *
  * @module parser
  * @todo Refactor to improve maintainability and add support for more meta tag formats
  */
@@ -44,20 +44,20 @@ const HtmlTitleTagReg = /(<title\s*[^>]*>(.*)<\/title>)/g
 
 /**
  * Creates a regular expression to match self-closing or non-closing HTML tags with a specific attribute.
- * 
+ *
  * This function generates patterns to find meta or link tags that contain a specific attribute,
  * which is useful for finding OGP tags like `og:title`, `og:description`, etc.
- * 
+ *
  * @param attr - The attribute to search for (e.g., 'title', 'description', 'image')
  * @param tag - The HTML tag name to match (default: 'meta')
  * @returns A RegExp that matches tags containing the specified attribute
- * 
+ *
  * @example
  * ```typescript
  * const reg = containArrSelfLosingHtmlTagReg('og:title')
  * // Matches: <meta property="og:title" content="...">
  * ```
- * 
+ *
  * @internal
  */
 const containArrSelfLosingHtmlTagReg = (attr: string, tag = 'meta') =>
@@ -65,20 +65,20 @@ const containArrSelfLosingHtmlTagReg = (attr: string, tag = 'meta') =>
 
 /**
  * Extracts the page title from HTML string.
- * 
+ *
  * Attempts to find the title in the following order:
  * 1. Meta tags with 'title' attribute (e.g., `<meta property="og:title" content="...">`)
  * 2. Standard HTML `<title>` tag
- * 
+ *
  * @param htmlString - The HTML content to parse
  * @returns The extracted title, or undefined if not found
- * 
+ *
  * @example
  * ```typescript
  * const title = matchTitleByMetaTag('<title>Example Page</title>')
  * // Returns: "Example Page"
  * ```
- * 
+ *
  * @internal
  */
 function matchTitleByMetaTag(htmlString: string) {
@@ -102,20 +102,20 @@ function matchTitleByMetaTag(htmlString: string) {
 
 /**
  * Extracts the page description from HTML string.
- * 
+ *
  * Searches for description in meta tags, supporting both standard and OGP formats:
  * - `<meta name="description" content="...">`
  * - `<meta property="og:description" content="...">`
- * 
+ *
  * @param htmlString - The HTML content to parse
  * @returns The extracted description, or undefined if not found
- * 
+ *
  * @example
  * ```typescript
  * const desc = matchDescriptionByMetaTag('<meta name="description" content="A great site">')
  * // Returns: "A great site"
  * ```
- * 
+ *
  * @internal
  */
 function matchDescriptionByMetaTag(htmlString: string) {
@@ -131,20 +131,20 @@ function matchDescriptionByMetaTag(htmlString: string) {
 
 /**
  * Extracts the page logo/icon URL from HTML string.
- * 
+ *
  * Attempts to find the logo in the following order:
  * 1. OGP image tag: `<meta property="og:image" content="...">`
  * 2. Icon link tag: `<link rel="icon" href="...">`
- * 
+ *
  * @param htmlString - The HTML content to parse
  * @returns The extracted logo URL (may be relative), or undefined if not found
- * 
+ *
  * @example
  * ```typescript
  * const logo = matchLogoByLinkOrMetaTag('<link rel="icon" href="/favicon.ico">')
  * // Returns: "/favicon.ico"
  * ```
- * 
+ *
  * @internal
  */
 function matchLogoByLinkOrMetaTag(htmlString: string) {
@@ -171,27 +171,27 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
 
 /**
  * Parses HTML string to extract structured metadata for link card generation.
- * 
+ *
  * This is the main parsing function that extracts title, description, and logo
  * from an HTML page. It handles both absolute and relative URLs, converting
  * relative logo paths to absolute URLs when necessary.
- * 
+ *
  * @param htmlString - The HTML content to parse
  * @param url - The URL of the page (used to resolve relative logo URLs)
  * @returns Parsed metadata object, or null if no valid metadata could be extracted
- * 
+ *
  * @example
  * ```typescript
  * const html = '<title>Example</title><meta name="description" content="Test">'
  * const metadata = parserMetadata(html, 'https://example.com')
  * // Returns: { title: 'Example', description: 'Test', logo: '...' }
  * ```
- * 
+ *
  * @remarks
  * - Returns null if all metadata fields (title, description, logo) are empty
  * - Relative logo URLs are converted to absolute URLs using the page's origin
  * - Falls back to a default logo if no logo can be found
- * 
+ *
  * @todo Handle protocol-relative URLs like `//img.example.com/logo.png`
  */
 export function parserMetadata(
@@ -200,10 +200,10 @@ export function parserMetadata(
 ): UrlMetadata | null {
   /**
    * Converts a potentially relative logo URL to an absolute URL.
-   * 
+   *
    * @param logo - The logo URL (may be relative or absolute)
    * @returns Absolute URL for the logo, or default logo if input is invalid
-   * 
+   *
    * @internal
    */
   function absolute(logo?: string) {
@@ -225,13 +225,13 @@ export function parserMetadata(
 
 /**
  * Checks if an object contains only undefined or empty string values.
- * 
+ *
  * This utility function is used to determine if any valid metadata was extracted
  * from a page. If all fields are empty, the metadata is considered invalid.
- * 
+ *
  * @param obj - Object to check (typically a metadata object)
  * @returns true if the object has no non-empty string values, false otherwise
- * 
+ *
  * @internal
  */
 function isEmptyStringObject(obj: Record<string, string | undefined>) {

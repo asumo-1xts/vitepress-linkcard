@@ -17,17 +17,17 @@ interface CardResponse {
    * The URL that was fetched.
    */
   url: string
-  
+
   /**
    * Parsed metadata from the URL.
    */
   data: UrlMetadata
-  
+
   /**
    * Rendering options (excluding href which is derived from url).
    */
   options: Omit<CardDomRenderOptions, 'href'>
-  
+
   /**
    * The generated HTML string for the card.
    */
@@ -36,20 +36,20 @@ interface CardResponse {
 
 /**
  * Generates a link card by fetching and parsing metadata from a URL.
- * 
+ *
  * This function performs the following operations:
  * 1. Fetches the HTML content from the provided URL synchronously
  * 2. Parses metadata (title, description, logo) from the HTML
  * 3. Generates an HTML card fragment with the metadata
  * 4. Caches the result for subsequent calls
- * 
+ *
  * The function is primarily used by the link-to-card plugin during markdown processing
  * but can also be used standalone for programmatic card generation.
- * 
+ *
  * @param url - The URL to fetch metadata from
  * @param options - Rendering options for the card (excluding href, which is set to the url parameter)
  * @returns A promise that resolves to a CardResponse containing the card data and HTML
- * 
+ *
  * @example
  * ```typescript
  * const card = await generateCard('https://example.com', {
@@ -59,7 +59,7 @@ interface CardResponse {
  * })
  * console.log(card.dom) // HTML string of the card
  * ```
- * 
+ *
  * @see {@link parserMetadata} for details on metadata extraction
  * @see {@link generateCardDomFragment} for details on card HTML generation
  */
