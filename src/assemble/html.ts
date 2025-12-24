@@ -9,7 +9,7 @@ import { STYLE } from './style'
  * - Domain name (with underline)
  * - Description (with 2-line ellipsis)
  * - Logo/icon image
- * - Hover animation that changes border color (similar to VitePress Features)
+ * - Smooth border transition for hover effects
  *
  * The function includes special handling for GitHub URLs to improve the display
  * of repository cards by cleaning up redundant text patterns.
@@ -31,10 +31,13 @@ import { STYLE } from './style'
  * - For GitHub URLs, the title is cleaned to remove "GitHub - " prefix and redundant text
  * - The card uses flexbox layout for responsive design
  * - All styles are inlined for maximum compatibility
- * - Hover effect uses VitePress CSS variable `--vp-c-brand-1` with fallback to #3451b2
- * - A small inline `<style>` tag is included for the hover effect; while this creates
- *   duplicate style blocks when multiple cards are present, the size is minimal (~100 bytes)
- *   and browsers handle this efficiently
+ * - Container has class `vitepress-linkcard-container` for custom styling
+ * - Border transition is included; add hover styles in your VitePress theme's custom CSS:
+ *   ```css
+ *   .vitepress-linkcard-container:hover {
+ *     border-color: var(--vp-c-brand-1) !important;
+ *   }
+ *   ```
  *
  * @see {@link STYLE} for the styling implementation
  */
@@ -89,12 +92,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     description = data.description || ''
   }
 
-  return `<style>
-  .vitepress-linkcard-container:hover {
-    border-color: var(--vp-c-brand-1, #3451b2) !important;
-  }
-</style>
-<span style="display:block;">
+  return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
     <span class="vitepress-linkcard-container" ${inject(style.container)}>
       <span ${inject(style.texts)}>
