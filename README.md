@@ -60,22 +60,32 @@ export default defineConfig({
 
 #### `docs/.vitepress/theme/custom.css` (Optional: Styling)
 
-You can customize the appearance of linkcards using CSS custom properties:
+You can customize the appearance of linkcards using CSS:
 
+**Method 1: Using CSS custom properties**
 ```css
-/* Customize colors */
 .vitepress-linkcard-container {
   --vitepress-linkcard-border-color: #e0e0e0;
   --vitepress-linkcard-bg-color: #f9f9f9;
 }
+```
 
-/* Add hover animation (similar to VitePress Features) */
+**Method 2: Using standard CSS properties (requires `!important`)**
+```css
+.vitepress-linkcard-container {
+  border-color: var(--vp-c-brand-2) !important;
+  background-color: var(--vp-c-brand-soft) !important;
+}
+```
+
+**Add hover animation (similar to VitePress Features)**
+```css
 .vitepress-linkcard-container:hover {
   border-color: var(--vp-c-brand-1) !important;
 }
 ```
 
-This allows you to override the default colors without modifying plugin options.
+Both methods allow you to override the default colors without modifying plugin options.
 
 #### `*.md`
 

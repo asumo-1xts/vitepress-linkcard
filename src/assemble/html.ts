@@ -35,12 +35,18 @@ import { STYLE } from './style'
  * - Uses CSS custom properties for theming:
  *   - `--vitepress-linkcard-border-color`: Customize border color
  *   - `--vitepress-linkcard-bg-color`: Customize background color
- * - Border transition is included; add hover styles in your VitePress theme's custom CSS:
+ * - Styling options in your VitePress theme's custom CSS:
  *   ```css
  *   .vitepress-linkcard-container {
  *     --vitepress-linkcard-border-color: #e0e0e0;
  *     --vitepress-linkcard-bg-color: #f9f9f9;
  *   }
+ *   
+ *   .vitepress-linkcard-container {
+ *     border-color: var(--vp-c-brand-2) !important;
+ *     background-color: var(--vp-c-brand-soft) !important;
+ *   }
+ *   
  *   .vitepress-linkcard-container:hover {
  *     border-color: var(--vp-c-brand-1) !important;
  *   }
