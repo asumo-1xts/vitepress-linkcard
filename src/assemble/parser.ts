@@ -6,7 +6,12 @@ import type { UrlMetadata } from '../types'
 import { isString } from '@luckrya/utility'
 import { cleanPath, extractUrl } from './url'
 
-const DEFAULT_LOGO = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"%3E%3Crect width="200" height="200" fill="%23f0f0f0"/%3E%3Ctext x="100" y="100" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" fill="%23999"%3ENO IMAGE%3C/text%3E%3C/svg%3E'
+// SVG fallback image for when OGP image cannot be retrieved
+const DEFAULT_LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" fill="#999">NO IMAGE</text>
+</svg>`
+const DEFAULT_LOGO = `data:image/svg+xml,${encodeURIComponent(DEFAULT_LOGO_SVG)}`
 const HtmlTagContentReg = /(<[A-Za-z]+\s*[^>]*>(.*)<\/[A-Za-z]+>)/
 const ContentAttrValueHtmlMetaTagReg = /content=["|']([^>]*)["|']/
 const HrefAttrValueHtmlLinkTagReg = /href=["|']([^>]*)["|']/
