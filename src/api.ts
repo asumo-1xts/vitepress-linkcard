@@ -54,8 +54,7 @@ interface CardResponse {
  * ```typescript
  * const card = await generateCard('https://example.com', {
  *   linkTitle: 'Example Site',
- *   target: '_blank',
- *   borderColor: '#e0e0e0'
+ *   target: '_blank'
  * })
  * console.log(card.dom) // HTML string of the card
  * ```

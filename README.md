@@ -48,9 +48,7 @@ export default defineConfig({
     config: (md) => {
       md.use<LinkToCardPluginOptions>(linkToCardPlugin, {
         // // Supported options:
-        // target: "_self",
-        // borderColor: "#039393",
-        // bgColor: "#CB3837"
+        // target: "_self"
       });
     },
   }
@@ -58,7 +56,7 @@ export default defineConfig({
 });
 ```
 
-#### `docs/.vitepress/theme/custom.css` (Optional: Styling)
+#### `docs/.vitepress/theme/custom.css` (Styling)
 
 You can customize the appearance of linkcards using CSS:
 
@@ -98,22 +96,6 @@ Generates a linkcard when `@:` appended.
 ```
 
 ## Supported options
-
-### borderColor
-
-Specifies the border color of linkcards with a color code. For exmaple:
-
-- `#7d7d7dff` (default)
-- `rgba(3, 147, 147, 0.39)`
-- ...
-
-### bgColor
-
-Specifies the background color of linkcards with a color code. For exmaple:
-
-- `#7d7d7d00` (default)
-- `rgba(3, 147, 147, 0.39)`
-- ...
 
 ### target
 

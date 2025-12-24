@@ -59,9 +59,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     rel: `rel="noopener noreferrer"`,
     target: `target="${options.target}"`,
     href: `href="${options.href}"`,
-    title: `title="${options.linkTitle}"`,
-    borderColor: `borderColor="${options.borderColor}"`,
-    bgColor: `bgColor="${options.bgColor}"`
+    title: `title="${options.linkTitle}"`
   }
   const inject = (s: string) => {
     return s
@@ -80,10 +78,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       .replace(/&gt;/g, '>')
       .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'")
-  const style = STYLE(
-    options.borderColor || '#7d7d7dff',
-    options.bgColor || '#7d7d7d00'
-  )
+  const style = STYLE()
   const url = options.href || ''
   const domain =
     new URL(url).origin.replace(/^https?:\/\//, '').replace(/^www\./, '') ||
