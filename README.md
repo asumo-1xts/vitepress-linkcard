@@ -69,6 +69,7 @@ You can customize the appearance of linkcards using CSS:
   --vitepress-linkcard-bg-color: #f9f9f9;
 }
 ```
+*Use this when: You want to set fixed colors independent of VitePress theme.*
 
 **Method 2: Using standard CSS properties (requires `!important`)**
 ```css
@@ -77,6 +78,7 @@ You can customize the appearance of linkcards using CSS:
   background-color: var(--vp-c-brand-soft) !important;
 }
 ```
+*Use this when: You want linkcards to follow VitePress theme colors automatically.*
 
 **Add hover animation (similar to VitePress Features)**
 ```css
