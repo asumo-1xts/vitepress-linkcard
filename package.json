@@ -22,7 +22,7 @@
     "@types/babel__core": "^7",
     "@types/markdown-it": "^13.0.2",
     "@types/node": "^25.0.3",
-    "eslint": "npm:9.39.2",
+    "eslint": "^9.39.2",
     "eslint-plugin-vue": "^10.6.2",
     "globals": "^16.5.0",
     "jiti": "^2.6.1",
