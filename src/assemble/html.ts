@@ -9,6 +9,7 @@ import { STYLE } from './style'
  * - Domain name (with underline)
  * - Description (with 2-line ellipsis)
  * - Logo/icon image
+ * - Hover animation that changes border color (similar to VitePress Features)
  *
  * The function includes special handling for GitHub URLs to improve the display
  * of repository cards by cleaning up redundant text patterns.
@@ -30,6 +31,10 @@ import { STYLE } from './style'
  * - For GitHub URLs, the title is cleaned to remove "GitHub - " prefix and redundant text
  * - The card uses flexbox layout for responsive design
  * - All styles are inlined for maximum compatibility
+ * - Hover effect uses VitePress CSS variable `--vp-c-brand-1` with fallback to #3451b2
+ * - A small inline `<style>` tag is included for the hover effect; while this creates
+ *   duplicate style blocks when multiple cards are present, the size is minimal (~100 bytes)
+ *   and browsers handle this efficiently
  *
  * @see {@link STYLE} for the styling implementation
  */
