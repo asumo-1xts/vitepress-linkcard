@@ -84,9 +84,14 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     description = data.description || ''
   }
 
-  return `<span style="display:block;">
+  return `<style>
+  .vitepress-linkcard-container:hover {
+    border-color: var(--vp-c-brand-1, #3451b2) !important;
+  }
+</style>
+<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
-    <span ${inject(style.container)}>
+    <span class="vitepress-linkcard-container" ${inject(style.container)}>
       <span ${inject(style.texts)}>
         <span ${inject(style.title)}>
           ${escapeHTML(title)}

@@ -144,7 +144,8 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     backgroundColor: bgColor,
     boxSizing: 'border-box',
     width: '100%',
-    height: '130px'
+    height: '130px',
+    transition: 'border-color 0.25s, background-color 0.25s'
   }),
   img: inlineStyle({
     borderRadius: '0px 12px 12px 0px',
