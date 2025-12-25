@@ -115,19 +115,21 @@ const ellipsisStyle = (line: number) => ({
  *
  * The styles are inspired by VitePress's VPFeature component design.
  *
- * @param borderColor - CSS color value for the card border
- * @param bgColor - CSS color value for the card background
+ * The container uses CSS custom properties for theming:
+ * - `--vitepress-linkcard-border-color`: Border color (default: #7d7d7dff)
+ * - `--vitepress-linkcard-bg-color`: Background color (default: transparent)
+ *
  * @returns Object containing style attribute strings for each card component
  *
  * @example
  * ```typescript
- * const styles = STYLE('#e0e0e0', '#ffffff')
+ * const styles = STYLE()
  * // Use in HTML: <div ${styles.container}>...</div>
  * ```
  *
  * @see {@link https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue | VPFeature component}
  */
-export const STYLE = (borderColor: string, bgColor: string) => ({
+export const STYLE = () => ({
   a: inlineStyle({
     color: 'unset !important',
     display: 'block',
@@ -140,11 +142,12 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     flexWrap: 'wrap',
     gap: '10px',
     borderRadius: '12px',
-    border: `1px solid ${borderColor}`,
-    backgroundColor: bgColor,
+    border: `1px solid var(--vp-c-bg-soft)`,
+    backgroundColor: `var(--vp-c-bg-soft)`,
     boxSizing: 'border-box',
     width: '100%',
-    height: '130px'
+    height: '130px',
+    transition: 'border-color 0.25s, background-color 0.25s'
   }),
   img: inlineStyle({
     borderRadius: '0px 12px 12px 0px',

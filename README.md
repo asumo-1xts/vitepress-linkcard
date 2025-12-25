@@ -6,13 +6,13 @@ vitepress-linkcard
 
 **A VitePress plugin to generate a pretty linkcard with OGP.**
 
-A blog generated with this plugin is [here](https://asumoranda.com/posts/10-vitepress-linkcard.html).
+You can see: [A blog generated with this plugin](https://asumoranda.com/posts/10-vitepress-linkcard.html) | [Docs by TypeDoc](https://asumo-1xts.github.io/vitepress-linkcard/)
 
 [![NPM Version](https://img.shields.io/npm/v/vitepress-linkcard?style=flat&logo=npm&logoColor=white&label=npmjs&color=%23CB3837)](https://www.npmjs.com/package/vitepress-linkcard)
 [![NPM bundle size](https://img.shields.io/bundlephobia/min/vitepress-linkcard)](https://www.npmjs.com/package/vitepress-linkcard)
+[![VitePress](https://img.shields.io/badge/For_VitePress-v1-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
 [![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)](/LICENSE)
 
-[![VitePress](https://img.shields.io/badge/For_VitePress-v1.6.4-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
 [![Yarn](https://img.shields.io/badge/Built_with_Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
 [![ESLint](https://img.shields.io/badge/Lint_with-ESLint-%234B32C3?style=flat&logo=eslint&logoColor=white&labelColor=gray)](https://github.com/asumo-1xts/vitepress-linkcard/actions/workflows/eslint.yml)
 [![Prettier](https://img.shields.io/badge/Format_with-Prettier-%23F7B93E?style=flat&logo=prettier&logoColor=white&labelColor=gray)](https://github.com/asumo-1xts/vitepress-linkcard/actions/workflows/prettier.yml)
@@ -47,10 +47,7 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       md.use<LinkToCardPluginOptions>(linkToCardPlugin, {
-        // // Supported options:
-        // target: "_self",
-        // borderColor: "#039393",
-        // bgColor: "#CB3837"
+        // target: "_self" // if needed
       });
     },
   }
@@ -68,30 +65,47 @@ Generates a linkcard when `@:` appended.
 
 ## Supported options
 
-### borderColor
+### Target
 
-Specifies the border color of linkcards with a color code. For exmaple:
+As shown in [Usage](#usage), you can specify the target window in which to open a link.
 
-- `#7d7d7dff` (default)
-- `rgba(3, 147, 147, 0.39)`
-- ...
-
-### bgColor
-
-Specifies the background color of linkcards with a color code. For exmaple:
-
-- `#7d7d7d00` (default)
-- `rgba(3, 147, 147, 0.39)`
-- ...
-
-### target
-
-Specifies the target window in which to open a link.
-
-- `_blank` (default)
+- `_blank` **(default)**
 - `_self`
 - `_top`
 - `_parent`
+
+### Color theme
+
+You can customize:
+
+- Border color
+- Background color
+- Border color when hovered
+- Background color when hovered
+
+Hex or rgba(*) or `var(--vp-***)` styles are available.
+
+**By default, all colors are set to `var(--vp-c-bg-soft)`.**
+
+#### `docs/.vitepress/theme/custom.css`
+
+```css
+.vitepress-linkcard-container {
+  border-color: var(--vp-c-brand-2) !important;
+  background-color: var(--vp-c-brand-soft) !important;
+}
+
+.vitepress-linkcard-container:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  background-color: var(--vp-c-brand-1) !important;
+}
+```
+
+#### `docs/.vitepress/theme/index.ts`
+
+``` ts
+import './style.css'
+```
 
 ## Other specifications
 

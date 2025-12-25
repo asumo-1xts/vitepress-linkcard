@@ -20,9 +20,7 @@ export type LinkToCardPlugin =
  * import { linkToCardPlugin } from 'vitepress-linkcard'
  *
  * markdownIt.use(linkToCardPlugin, {
- *   target: '_blank',
- *   borderColor: '#e0e0e0',
- *   bgColor: '#f5f5f5'
+ *   target: '_blank'
  * })
  * ```
  *
@@ -49,18 +47,6 @@ export interface LinkToCardPluginOptions {
    * When provided, this function is used instead of the default card renderer.
    */
   render?: CardDomRender
-
-  /**
-   * Border color for the link card.
-   * @defaultValue `'#7d7d7dff'`
-   */
-  borderColor?: string
-
-  /**
-   * Background color for the link card.
-   * @defaultValue `'#7d7d7d00'` (transparent)
-   */
-  bgColor?: string
 }
 
 /**
@@ -128,16 +114,6 @@ export interface CardDomRenderOptions {
    * CSS class name prefix for the card DOM elements.
    */
   classPrefix?: string
-
-  /**
-   * Border color for the link card.
-   */
-  borderColor?: string
-
-  /**
-   * Background color for the link card.
-   */
-  bgColor?: string
 }
 
 /**

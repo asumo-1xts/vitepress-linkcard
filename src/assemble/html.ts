@@ -9,6 +9,7 @@ import { STYLE } from './style'
  * - Domain name (with underline)
  * - Description (with 2-line ellipsis)
  * - Logo/icon image
+ * - Smooth border transition for hover effects
  *
  * The function includes special handling for GitHub URLs to improve the display
  * of repository cards by cleaning up redundant text patterns.
@@ -30,6 +31,26 @@ import { STYLE } from './style'
  * - For GitHub URLs, the title is cleaned to remove "GitHub - " prefix and redundant text
  * - The card uses flexbox layout for responsive design
  * - All styles are inlined for maximum compatibility
+ * - Container has class `vitepress-linkcard-container` for custom styling
+ * - Uses CSS custom properties for theming:
+ *   - `--vitepress-linkcard-border-color`: Customize border color
+ *   - `--vitepress-linkcard-bg-color`: Customize background color
+ * - Styling options in your VitePress theme's custom CSS:
+ *   ```css
+ *   .vitepress-linkcard-container {
+ *     --vitepress-linkcard-border-color: #e0e0e0;
+ *     --vitepress-linkcard-bg-color: #f9f9f9;
+ *   }
+ *   
+ *   .vitepress-linkcard-container {
+ *     border-color: var(--vp-c-brand-2) !important;
+ *     background-color: var(--vp-c-brand-soft) !important;
+ *   }
+ *   
+ *   .vitepress-linkcard-container:hover {
+ *     border-color: var(--vp-c-brand-1) !important;
+ *   }
+ *   ```
  *
  * @see {@link STYLE} for the styling implementation
  */
@@ -38,9 +59,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     rel: `rel="noopener noreferrer"`,
     target: `target="${options.target}"`,
     href: `href="${options.href}"`,
-    title: `title="${options.linkTitle}"`,
-    borderColor: `borderColor="${options.borderColor}"`,
-    bgColor: `bgColor="${options.bgColor}"`
+    title: `title="${options.linkTitle}"`
   }
   const inject = (s: string) => {
     return s
@@ -59,10 +78,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       .replace(/&gt;/g, '>')
       .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'")
-  const style = STYLE(
-    options.borderColor || '#7d7d7dff',
-    options.bgColor || '#7d7d7d00'
-  )
+  const style = STYLE()
   const url = options.href || ''
   const domain =
     new URL(url).origin.replace(/^https?:\/\//, '').replace(/^www\./, '') ||
@@ -86,7 +102,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
 
   return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
-    <span ${inject(style.container)}>
+    <span class="vitepress-linkcard-container" ${inject(style.container)}>
       <span ${inject(style.texts)}>
         <span ${inject(style.title)}>
           ${escapeHTML(title)}

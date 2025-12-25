@@ -23,9 +23,7 @@ import { getUrlMetadata, generateCardDomFragment } from './assemble'
  *
  * const md = new MarkdownIt()
  * md.use(linkToCardPlugin, {
- *   target: '_blank',
- *   borderColor: '#e0e0e0',
- *   bgColor: '#ffffff'
+ *   target: '_blank'
  * })
  * ```
  *
@@ -88,9 +86,7 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
         href: options.url,
         linkTitle: joinLinkTitle(options.tokens),
         target: pluginOptions.target || '_blank',
-        classPrefix: pluginOptions.classPrefix,
-        borderColor: pluginOptions.borderColor,
-        bgColor: pluginOptions.bgColor
+        classPrefix: pluginOptions.classPrefix
       }
 
       return isFunction(pluginOptions.render)
