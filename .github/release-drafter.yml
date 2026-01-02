@@ -1,0 +1,29 @@
+name-template: 'v$MAJOR.$MINOR.$PATCH'
+tag-template: 'v$MAJOR.$MINOR'
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'enhancement'
+  - title: '🐞 Bug Fixes'
+    labels:
+      - 'bug'
+exclude-labels:
+  - 'documentation'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
+
+template: |
+  ## What’s Changed
+
+  $CHANGES

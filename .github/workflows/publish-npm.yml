@@ -1,0 +1,45 @@
+name: Publish to NPM
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+    paths:
+      - 'package.json'
+      - 'yarn.lock'
+      - 'src/**'
+      - 'README.md'
+      - '.github/workflows/publish-npm.yml'
+  workflow_dispatch:
+
+jobs:
+  publish-npm:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          registry-url: 'https://registry.npmjs.org/'
+      - name: Enable Yarn
+        run: |
+          npm uninstall -g yarn
+          corepack enable
+          corepack prepare yarn@4.9.2 --activate
+          yarn install --immutable
+      - name: Build and publish
+        run: |
+          yarn build
+          yarn npm publish --access public
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

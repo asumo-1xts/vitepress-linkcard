@@ -1,0 +1,19 @@
+name: Dummy workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'src/**'
+      - '.github/workflows/eslint.yml'
+
+jobs:
+  run-dummy:
+    name: Required processes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Run a dummy step
+        run: echo "This is a dummy workflow."

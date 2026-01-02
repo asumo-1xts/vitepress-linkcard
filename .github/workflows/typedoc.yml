@@ -1,0 +1,63 @@
+name: TypeDoc CD
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+    paths:
+      - 'src/**'
+      - 'README.md'
+      - '.github/workflows/typedoc.yml'
+  workflow_dispatch:
+
+jobs:
+  do-typedoc:
+    # if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+      - name: Enable Yarn
+        run: |
+          npm uninstall -g yarn
+          corepack enable
+          corepack prepare yarn@4.9.2 --activate
+          yarn install --immutable
+      - name: Generate TypeDoc
+        run: yarn docs
+
+      # 更新された docs を一時ディレクトリへコピー
+      - name: Save updated docs
+        run: |
+          mkdir -p /tmp/vitepress-linkcard
+          cp -r docs /tmp/vitepress-linkcard/docs
+
+      # typedoc ブランチをチェックアウト
+      - name: Checkout typedoc branch
+        uses: actions/checkout@v5
+        with:
+          ref: typedoc
+          fetch-depth: 0
+
+      # docs を復元
+      - name: Restore docs
+        run: cp -r /tmp/vitepress-linkcard/docs docs
+
+      # コミット＆プッシュ
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+        with:
+          branch: typedoc
+          commit_message: 'auto: Update TypeDoc'
+          commit_user_name: 'gh-actions[bot]'
+          commit_user_email: 'action@github.com'
+          commit_author: 'gh-actions[bot] <action@github.com>'

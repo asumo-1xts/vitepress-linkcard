@@ -1,0 +1,28 @@
+name: Release Creator
+
+# on:
+#   pull_request:
+#     branches:
+#       - main
+#     types:
+#       - closed
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  update-release-draft:
+    # if: github.event.pull_request.merged == true
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
