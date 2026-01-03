@@ -1,11 +1,9 @@
 name: TypeDoc CD
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-    types:
-      - closed
     paths:
       - 'src/**'
       - 'README.md'
@@ -14,7 +12,6 @@ on:
 
 jobs:
   do-typedoc:
-    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -24,8 +21,9 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
       - name: Enable Yarn
         run: |
           npm uninstall -g yarn
@@ -35,29 +33,11 @@ jobs:
       - name: Generate TypeDoc
         run: yarn docs
 
-      # 更新された docs を一時ディレクトリへコピー
-      - name: Save updated docs
-        run: |
-          mkdir -p /tmp/vitepress-linkcard
-          cp -r docs /tmp/vitepress-linkcard/docs
-
-      # typedoc ブランチをチェックアウト
-      - name: Checkout typedoc branch
-        uses: actions/checkout@v5
-        with:
-          ref: typedoc
-          fetch-depth: 0
-
-      # docs を復元
-      - name: Restore docs
-        run: cp -r /tmp/vitepress-linkcard/docs docs
-
-      # コミット＆プッシュ
       - name: Commit formatted code
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
-          branch: typedoc
-          commit_message: 'auto: Update TypeDoc'
+          branch: main
+          commit_message: 'docs: Update TypeDoc'
           commit_user_name: 'gh-actions[bot]'
           commit_user_email: 'action@github.com'
           commit_author: 'gh-actions[bot] <action@github.com>'
