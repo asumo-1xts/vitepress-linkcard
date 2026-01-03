@@ -23,3 +23,13 @@ usage = '''
 arg "<arg>" default=""
 '''
 description = "Starts the development server."
+
+[tasks."build"]
+run = '''
+yarn build
+'''
+alias = "yb"
+usage = '''
+arg "<arg>" default=""
+'''
+description = "Builds the project for production."
