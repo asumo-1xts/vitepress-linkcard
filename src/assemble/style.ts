@@ -53,7 +53,7 @@ export const STYLE = () => ({
   img: inlineStyle({
     borderRadius: '0px 12px 12px 0px',
     maxWidth: '40%',
-    height: '128px', // container.height - 2px
+    height: '129px',
     flexShrink: 0,
     objectFit: 'contain',
     overflow: 'hidden'
