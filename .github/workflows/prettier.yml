@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
       - name: Enable Yarn
         run: |
           npm uninstall -g yarn
@@ -38,5 +38,5 @@ jobs:
           branch: main
           commit_message: 'style: Format code with Prettier'
           commit_user_name: 'gh-actions[bot]'
-          commit_user_email: 'action@github.com'
-          commit_author: 'gh-actions[bot] <action@github.com>'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
