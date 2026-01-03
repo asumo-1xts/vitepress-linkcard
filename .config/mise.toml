@@ -2,3 +2,24 @@
 node = "25.0.0"
 npm = "11.6.2"
 yarn = "4.9.2"
+
+
+[tasks."install"]
+run = '''
+yarn install
+'''
+alias = "yi"
+usage = '''
+arg "<arg>" default=""
+'''
+description = "Installs dependencies using Yarn."
+
+[tasks."dev"]
+run = '''
+yarn dev
+'''
+alias = "yd"
+usage = '''
+arg "<arg>" default=""
+'''
+description = "Starts the development server."
