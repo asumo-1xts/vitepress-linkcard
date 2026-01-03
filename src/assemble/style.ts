@@ -1,51 +1,7 @@
-/**
- * Style generation utilities for link card rendering.
- *
- * This module provides functions to generate inline CSS styles and class names
- * for the link card components. The styles support customizable colors and
- * responsive design with text ellipsis for long content.
- *
- * @module style
- */
-
-/**
- * Converts a camelCase string to hyphenated kebab-case.
- *
- * This is used to convert JavaScript style property names (e.g., `backgroundColor`)
- * to CSS property names (e.g., `background-color`).
- *
- * @param str - The camelCase string to convert
- * @returns The hyphenated kebab-case string
- *
- * @example
- * ```typescript
- * hyphenate('backgroundColor') // Returns: 'background-color'
- * hyphenate('fontSize')        // Returns: 'font-size'
- * ```
- *
- * @internal
- */
 function hyphenate(str: string): string {
   return str.replace(/\B([A-Z])/g, '-$1').toLowerCase()
 }
 
-/**
- * Joins style properties into a CSS string.
- *
- * Converts a JavaScript object of style properties into a semicolon-separated
- * CSS string suitable for inline styles.
- *
- * @param style - Object containing CSS properties and values
- * @returns A string of CSS declarations
- *
- * @example
- * ```typescript
- * join({ fontSize: '16px', color: 'red' })
- * // Returns: 'font-size: 16px; color: red;'
- * ```
- *
- * @internal
- */
 function join(style: Record<string, string | number>) {
   return Object.entries(style)
     .map(([k, v]) => {
@@ -55,41 +11,10 @@ function join(style: Record<string, string | number>) {
     .join(' ')
 }
 
-/**
- * Wraps CSS declarations in an inline style attribute.
- *
- * @param style - Object containing CSS properties and values
- * @returns A complete HTML style attribute string
- *
- * @example
- * ```typescript
- * inlineStyle({ color: 'red', fontSize: '16px' })
- * // Returns: 'style="color: red; font-size: 16px;"'
- * ```
- *
- * @internal
- */
 function inlineStyle(style: Record<string, string | number>) {
   return `style="${join(style)}"`
 }
 
-/**
- * Generates CSS properties for text ellipsis with line clamping.
- *
- * Creates styles that truncate text after a specified number of lines with
- * an ellipsis. Uses both WebKit-specific properties and standard line-clamp.
- *
- * @param line - Maximum number of lines to display before truncation
- * @returns CSS properties object for ellipsis effect
- *
- * @example
- * ```typescript
- * ellipsisStyle(2)
- * // Returns styles that truncate text after 2 lines with "..."
- * ```
- *
- * @internal
- */
 const ellipsisStyle = (line: number) => ({
   '-webkit-box-orient': 'vertical',
   '-webkit-line-clamp': line,
@@ -104,30 +29,6 @@ const ellipsisStyle = (line: number) => ({
 
 /**
  * Generates complete inline styles for all link card components.
- *
- * Creates a set of inline style strings for each part of the link card:
- * - Container: main card box with border and background
- * - Image: logo/icon display
- * - Texts: wrapper for text content
- * - Title: card title (2-line ellipsis)
- * - Domain: domain name with underline
- * - Description: description text (2-line ellipsis)
- *
- * The styles are inspired by VitePress's VPFeature component design.
- *
- * The container uses CSS custom properties for theming:
- * - `--vitepress-linkcard-border-color`: Border color (default: #7d7d7dff)
- * - `--vitepress-linkcard-bg-color`: Background color (default: transparent)
- *
- * @returns Object containing style attribute strings for each card component
- *
- * @example
- * ```typescript
- * const styles = STYLE()
- * // Use in HTML: <div ${styles.container}>...</div>
- * ```
- *
- * @see {@link https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue | VPFeature component}
  */
 export const STYLE = () => ({
   a: inlineStyle({
@@ -159,7 +60,7 @@ export const STYLE = () => ({
   }),
   texts: inlineStyle({
     flex: '1 1 0%',
-    minWidth: '0' // ellipsisを有効にするために必要
+    minWidth: '0'
   }),
   title: inlineStyle({
     ...ellipsisStyle(2),
@@ -186,29 +87,6 @@ export const STYLE = () => ({
   })
 })
 
-/**
- * Generates CSS class names with a custom prefix.
- *
- * When using the `classPrefix` option, this function creates consistent
- * class names for all card components following a BEM-like naming convention.
- *
- * @param prefix - The prefix to prepend to all class names
- * @returns Object mapping component names to their class names
- *
- * @example
- * ```typescript
- * const classes = classNames('my-card')
- * // Returns: {
- * //   container: 'my-card__container',
- * //   title: 'my-card__texts--title',
- * //   ...
- * // }
- * ```
- *
- * @remarks
- * When class names are used instead of inline styles, you must provide
- * your own CSS definitions for these classes.
- */
 export const classNames = (prefix?: string) => ({
   container: `${prefix}__container`,
   img: `${prefix}__img`,
