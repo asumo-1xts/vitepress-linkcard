@@ -76,9 +76,12 @@ export function parserMetadata(
 ): UrlMetadata | null {
   function absolute(logo?: string) {
     if (!logo) return DEFAULT_LOGO
-    return extractUrl(logo)
-      ? logo
-      : `${extractUrl(url)?.origin}${cleanPath(`/${logo}`)}`
+    try {
+      extractUrl(logo)
+      return logo
+    } catch {
+      return `${extractUrl(url)?.origin}${cleanPath(`/${logo}`)}`
+    }
   }
 
   const metadata = {
