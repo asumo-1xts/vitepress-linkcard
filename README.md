@@ -10,14 +10,14 @@ You can see: [A blog generated with this plugin](https://asumoranda.com/posts/10
 
 [![NPM Version](https://img.shields.io/npm/v/vitepress-linkcard?style=flat&logo=npm&logoColor=white&label=npmjs&color=%23CB3837)](https://www.npmjs.com/package/vitepress-linkcard)
 [![NPM bundle size](https://img.shields.io/bundlephobia/min/vitepress-linkcard)](https://www.npmjs.com/package/vitepress-linkcard)
-[![VitePress](https://img.shields.io/badge/For_VitePress-v1-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
+[![VitePress](https://img.shields.io/badge/For_VitePress-v1_|_v2-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1]/)
 [![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)](/LICENSE)
 
 [![Yarn](https://img.shields.io/badge/Built_with_Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
 [![ESLint](https://img.shields.io/badge/Lint_with-ESLint-%234B32C3?style=flat&logo=eslint&logoColor=white&labelColor=gray)](https://github.com/asumo-1xts/vitepress-linkcard/actions/workflows/eslint.yml)
 [![Prettier](https://img.shields.io/badge/Format_with-Prettier-%23F7B93E?style=flat&logo=prettier&logoColor=white&labelColor=gray)](https://github.com/asumo-1xts/vitepress-linkcard/actions/workflows/prettier.yml)
 
-<img src="https://github.com/asumo-1xts/vitepress-linkcard/blob/main/.github/screen.webp?raw=true" width=90% alt="How it shows" />
+<img src="https://github.com/asumo-1xts/vitepress-linkcard/blob/main/.github/screen.gif?raw=true" width=90% alt="How it shows" />
 
 This plugin was forked from [markdown-it-link-to-card](https://github.com/luckrya/markdown-it-link-to-card).
 
@@ -88,7 +88,7 @@ You can customize:
 #### `docs/.vitepress/theme/custom.css`
 
 ```css
-/* For example: like Features in VitePress */
+/* For example: like "Features" in VitePress */
 
 .vitepress-linkcard-container {
   border-color: #00000000 !important;
@@ -104,7 +104,17 @@ You can customize:
 #### `docs/.vitepress/theme/index.ts`
 
 ``` ts
-import './style.css'
+import DefaultTheme from 'vitepress/theme-without-fonts'
+import type { Theme as ThemeConfig } from 'vitepress'
+import './custom.css'
+
+const Theme: ThemeConfig = {
+  extends: DefaultTheme
+}
+
+export default {
+  ...Theme
+}
 ```
 
 ## Other specifications
