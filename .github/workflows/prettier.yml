@@ -6,9 +6,6 @@ on:
       - main
     types:
       - closed
-    paths:
-      - 'src/**'
-      - '.github/workflows/prettier.yml'
 
 jobs:
   run-prettier:
