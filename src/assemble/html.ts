@@ -37,10 +37,12 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
   if (domain == 'github.com') {
     title = data.title?.split(':')[0].replace('GitHub - ', '') || 'No title'
     description =
-      description?.replace(` - ${title}`, '').replace(
-        `Contribute to ${title} development by creating an account on GitHub.`,
-        ''
-      ) || ''
+      description
+        ?.replace(` - ${title}`, '')
+        .replace(
+          `Contribute to ${title} development by creating an account on GitHub.`,
+          ''
+        ) || ''
   } else {
     title = data.title || 'No title'
     description = data.description || ''
