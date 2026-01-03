@@ -1,10 +1,7 @@
 {
   "author": "aSumo",
   "babel": {
-    "presets": [
-      "@babel/env",
-      "@babel/typescript"
-    ]
+    "presets": ["@babel/env", "@babel/typescript"]
   },
   "bugs": {
     "url": "https://github.com/asumo-1xts/vitepress-linkcard"
@@ -38,10 +35,7 @@
     "vue-eslint-parser": "^10.2.0",
     "xmlhttprequest": "^1.8.0"
   },
-  "files": [
-    "dist",
-    "types"
-  ],
+  "files": ["dist", "types"],
   "keywords": [
     "thumbnail",
     "typescript",
