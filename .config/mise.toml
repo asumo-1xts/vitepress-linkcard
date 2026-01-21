@@ -1,4 +1,4 @@
 [tools]
-node = "25.0.0"
-npm = "11.6.2"
+node = "latest"
+npm = "latest"
 yarn = "4.9.2"
