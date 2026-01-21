@@ -21,40 +21,26 @@ jobs:
   run-oxfmt-typedoc:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-      - name: Yarn commands
-        run: |
+      - uses: actions/setup-node@v6
+      - run: |
           npm uninstall -g yarn
           corepack enable
           corepack prepare yarn@4.9.2 --activate
           yarn install --immutable
-      - name: Format code with Oxfmt
-        run: yarn format
-      - name: Commit formatted code
-        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+          yarn format
+      - uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
-          branch: main
           commit_message: 'style: Format code with Oxfmt'
-          commit_user_name: 'gh-actions[bot]'
-          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
-      - name: Generate documentation with TypeDoc
-        run: yarn docs
-      - name: Commit formatted code
-        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+      - run: yarn docs
+      - uses: actions/upload-artifact@v4
         with:
-          branch: main
-          commit_message: 'docs: Update TypeDoc'
-          commit_user_name: 'gh-actions[bot]'
-          commit_user_email: 'action@github.com'
-          commit_author: 'gh-actions[bot] <action@github.com>'
+          name: docs-build
+          path: docs/
 
   deploy:
     needs: run-oxfmt-typedoc
@@ -63,14 +49,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/download-artifact@v4
+        with:
+          name: docs-build
+          path: docs/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: 'docs/'
-      - name: Deploy to GitHub Pages
+      - uses: actions/deploy-pages@v4
         id: deployment
-        uses: actions/deploy-pages@v4
