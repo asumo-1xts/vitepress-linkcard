@@ -1,22 +1,9 @@
 name: Publish to NPM
 
-on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - closed
-    paths:
-      - 'package.json'
-      - 'yarn.lock'
-      - 'src/**'
-      - 'README.md'
-      - '.github/workflows/publish-npm.yml'
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   publish-npm:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       id-token: write

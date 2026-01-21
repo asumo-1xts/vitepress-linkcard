@@ -1,5 +1,7 @@
 <h1 align="center">
-vitepress-linkcard
+
+vitepress-linkcard [![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)](/LICENSE)
+
 </h1>
 
 <div align="center">
@@ -11,11 +13,9 @@ You can see: [A blog generated with this plugin](https://asumoranda.com/posts/10
 [![NPM Version](https://img.shields.io/npm/v/vitepress-linkcard?style=flat&logo=npm&logoColor=white&label=npmjs&color=%23CB3837)](https://www.npmjs.com/package/vitepress-linkcard)
 [![NPM bundle size](https://img.shields.io/bundlephobia/min/vitepress-linkcard)](https://www.npmjs.com/package/vitepress-linkcard)
 [![VitePress](https://img.shields.io/badge/For_VitePress-v1_|_v2-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1]/)
-[![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)](/LICENSE)
 
 [![Yarn](https://img.shields.io/badge/Built_with_Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
-[![ESLint](https://img.shields.io/badge/Lint_with-ESLint-%234B32C3?style=flat&logo=eslint&logoColor=white&labelColor=gray)](https://github.com/asumo-1xts/vitepress-linkcard/actions/workflows/eslint.yml)
-[![Prettier](https://img.shields.io/badge/Format_with-Prettier-%23F7B93E?style=flat&logo=prettier&logoColor=white&labelColor=gray)](https://github.com/asumo-1xts/vitepress-linkcard/actions/workflows/prettier.yml)
+[![Oxc](https://img.shields.io/badge/Oxc-%2300F7F1?logo=oxc&label=Lint%20and%20Format%20with&labelColor=gray)](https://oxc.rs/)
 
 <img src="https://github.com/asumo-1xts/vitepress-linkcard/blob/main/.github/screen.gif?raw=true" width=90% alt="How it shows" />
 
@@ -38,9 +38,9 @@ pnpm add -D vitepress-linkcard  # pnpm
 #### `docs/.vitepress/config.ts`
 
 ```ts
-import { defineConfig } from "vitepress";
-import { linkToCardPlugin } from "vitepress-linkcard";
-import type { LinkToCardPluginOptions } from "vitepress-linkcard";
+import { defineConfig } from 'vitepress'
+import { linkToCardPlugin } from 'vitepress-linkcard'
+import type { LinkToCardPluginOptions } from 'vitepress-linkcard'
 
 export default defineConfig({
   // ...
@@ -48,11 +48,11 @@ export default defineConfig({
     config: (md) => {
       md.use<LinkToCardPluginOptions>(linkToCardPlugin, {
         // target: "_self" // if needed
-      });
-    },
+      })
+    }
   }
   // ...
-});
+})
 ```
 
 #### `*.md`
@@ -103,7 +103,7 @@ You can customize:
 
 #### `docs/.vitepress/theme/index.ts`
 
-``` ts
+```ts
 import DefaultTheme from 'vitepress/theme-without-fonts'
 import type { Theme as ThemeConfig } from 'vitepress'
 import './custom.css'
@@ -129,7 +129,7 @@ You can move it to `.config` directory or edit it if needed.
 
 When the domain is `github.com`, trimming is performed as shown in the following example to avoid duplication of the title and description.
 
-| | Title | Description |
-| - | - | - |
+|        | Title                                                                                     | Description                                                                                                                                 |
+| ------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | Before | GitHub - asumo-1xts/vitepress-linkcard: A VitePress plugin to generate a pretty linkcard. | A VitePress plugin to generate a pretty linkcard. Contribute to asumo-1xts/vitepress-linkcard development by creating an account on GitHub. |
-| After | asumo-1xts/vitepress-linkcard | A VitePress plugin to generate a pretty linkcard. |
+| After  | asumo-1xts/vitepress-linkcard                                                             | A VitePress plugin to generate a pretty linkcard.                                                                                           |

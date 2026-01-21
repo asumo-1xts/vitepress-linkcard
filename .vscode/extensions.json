@@ -1,8 +1,3 @@
 {
-  "recommendations": [
-    "arcanis.vscode-zipfs",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "tamasfe.even-better-toml"
-  ]
+  "recommendations": ["oxc.oxc-vscode"]
 }

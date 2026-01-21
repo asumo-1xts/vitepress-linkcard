@@ -1,4 +1,4 @@
-name: Publish to GH Packages
+name: Publish to GH
 
 on: workflow_dispatch
 

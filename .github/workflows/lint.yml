@@ -1,0 +1,30 @@
+name: Lint with Oxlint
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - '.github/workflows/lint.yml'
+
+jobs:
+  lint:
+    name: Required processes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+      - name: Yarn commands
+        run: |
+          npm uninstall -g yarn
+          corepack enable
+          corepack prepare yarn@4.9.2 --activate
+          yarn install --immutable
+      - name: Lint
+        run: yarn lint:github
