@@ -2,18 +2,6 @@
 
 Always welcome.
 
-## Environment
-
-[mise](https://mise.jdx.dev/) is recommended.
-
-```shell
-mise install # Load .config/mise.toml and install tools
-
-yarn install # Install dependencies
-
-yarn dlx @yarnpkg/sdks vscode # If you develop with VScode
-```
-
 ## Branch rule
 
 `main` branch can only be pushed from Pull Requests.
