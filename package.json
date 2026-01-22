@@ -5,12 +5,10 @@
   "keywords": [
     "linkcard",
     "markdown-it",
-    "metadata",
     "ogp",
     "thumbnail",
-    "typescript",
-    "vite",
-    "vitepress"
+    "vitepress",
+    "vitepress-plugin"
   ],
   "bugs": {
     "url": "https://github.com/asumo-1xts/vitepress-linkcard"
