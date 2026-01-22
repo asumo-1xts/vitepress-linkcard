@@ -1,7 +1,5 @@
 <h1 align="center">
-
-vitepress-linkcard [![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)](/LICENSE)
-
+vitepress-linkcard
 </h1>
 
 <div align="center">
@@ -11,8 +9,8 @@ vitepress-linkcard [![NPM License](https://img.shields.io/npm/l/vitepress-linkca
 You can see: [A blog generated with this plugin](https://asumoranda.com/posts/10-vitepress-linkcard.html) | [Docs by TypeDoc](https://asumo-1xts.github.io/vitepress-linkcard/)
 
 [![NPM Version](https://img.shields.io/npm/v/vitepress-linkcard?style=flat&logo=npm&logoColor=white&label=npmjs&color=%23CB3837)](https://www.npmjs.com/package/vitepress-linkcard)
-[![NPM bundle size](https://img.shields.io/bundlephobia/min/vitepress-linkcard)](https://www.npmjs.com/package/vitepress-linkcard)
 [![VitePress](https://img.shields.io/badge/For_VitePress-v1_|_v2-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1]/)
+[![NPM License](https://img.shields.io/npm/l/vitepress-linkcard)](/LICENSE)
 
 [![Yarn](https://img.shields.io/badge/Built_with_Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
 [![Oxc](https://img.shields.io/badge/Oxc-%2300F7F1?logo=oxc&logoColor=white&label=Lint%20and%20Format%20with&labelColor=gray)](https://oxc.rs/)
