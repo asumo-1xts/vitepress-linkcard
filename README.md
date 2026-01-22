@@ -15,7 +15,7 @@ You can see: [A blog generated with this plugin](https://asumoranda.com/posts/10
 [![VitePress](https://img.shields.io/badge/For_VitePress-v1_|_v2-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1]/)
 
 [![Yarn](https://img.shields.io/badge/Built_with_Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
-[![Oxc](https://img.shields.io/badge/Oxc-%2300F7F1?logo=oxc&label=Lint%20and%20Format%20with&labelColor=gray)](https://oxc.rs/)
+[![Oxc](https://img.shields.io/badge/Oxc-%2300F7F1?logo=oxc&logoColor=white&label=Lint%20and%20Format%20with&labelColor=gray)](https://oxc.rs/)
 
 <img src="https://github.com/asumo-1xts/vitepress-linkcard/blob/main/.github/screen.gif?raw=true" width=90% alt="How it shows" />
 
