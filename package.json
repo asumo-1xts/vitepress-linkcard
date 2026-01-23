@@ -1,6 +1,6 @@
 {
   "name": "vitepress-linkcard",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "A Vitepress plugin to generate a pretty linkcard with OGP.",
   "keywords": [
     "linkcard",
