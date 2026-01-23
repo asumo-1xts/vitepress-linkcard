@@ -2061,13 +2061,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.5.0":
-  version: 16.5.0
-  resolution: "globals@npm:16.5.0"
-  checksum: 10c0/615241dae7851c8012f5aa0223005b1ed6607713d6813de0741768bd4ddc39353117648f1a7086b4b0fa45eae733f1c0a0fe369aa4e543bb63f8de8990178ea9
-  languageName: node
-  linkType: hard
-
 "graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.6":
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
@@ -3155,7 +3148,6 @@ __metadata:
     "@types/babel__core": "npm:^7"
     "@types/markdown-it": "npm:^13.0.2"
     "@types/node": "npm:^25.0.3"
-    globals: "npm:^16.5.0"
     markdown-it: "npm:^13.0.2"
     oxfmt: "npm:^0.26.0"
     oxlint: "npm:^1.41.0"
