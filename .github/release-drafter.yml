@@ -9,7 +9,7 @@ categories:
       - 'bug'
 exclude-labels:
   - 'documentation'
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-template: '- $TITLE by @$AUTHOR in #$NUMBER'
 change-title-escapes: '\<*_&'
 version-resolver:
   major:
