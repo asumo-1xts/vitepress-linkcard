@@ -119,9 +119,9 @@ export default {
 
 ### `.linkcard_cache.json`
 
-It is generated automatically in root dir and cache all the parsed metadata.
+It is generated automatically in `docs/` and cache all the parsed metadata.
 
-You can move it to `.config` directory or edit it if needed.
+You can move it to root dir if needed.
 
 ### Special handling for `github.com`
 

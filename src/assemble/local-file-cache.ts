@@ -3,8 +3,8 @@ import fs from 'node:fs'
 
 const CONFIG_FILE = () => {
   let filePath: string
-  const defaultPath = `${process.cwd()}/.linkcard_cache.json`
-  const fallbackPath = `${process.cwd()}/.config/.linkcard_cache.json`
+  const defaultPath = `${process.cwd()}/docs/.linkcard_cache.json`
+  const fallbackPath = `${process.cwd()}/.linkcard_cache.json`
 
   if (fs.existsSync(defaultPath)) {
     filePath = defaultPath
